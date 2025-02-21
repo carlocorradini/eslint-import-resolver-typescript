@@ -42,6 +42,7 @@
     "plugin"
   ],
   "scripts": {
+    "bug": "eslint tests/bug",
     "build": "run-p 'build:*'",
     "build:r": "r -f cjs,es2020",
     "build:ts": "tsc -b",

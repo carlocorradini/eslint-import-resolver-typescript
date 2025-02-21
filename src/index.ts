@@ -1,5 +1,6 @@
 import fs from 'node:fs'
 import path from 'node:path'
+import util from "node:util"
 
 import isNodeCoreModule from '@nolyfill/is-core-module'
 import debug from 'debug'
@@ -426,6 +427,15 @@ function initMappers(options: InternalResolverOptions) {
         // eslint-disable-next-line unicorn/no-useless-undefined
         return undefined
       }
+
+      console.log(
+        `tsconfigResult: ${util.inspect(tsconfigResult, {
+          colors: true,
+          depth: Infinity,
+          maxStringLength: Infinity,
+          maxArrayLength: Infinity,
+        })}`,
+      )
 
       const mapperFn = createPathsMatcher(tsconfigResult)
 
